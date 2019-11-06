@@ -6,4 +6,4 @@ env:
 install:
   - go get ./...
 script:
-  - go install
+  - cd ./video_server/api && go test
