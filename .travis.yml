@@ -1,0 +1,4 @@
+sudo: false
+language: go
+before_install:
+  - go get github.com/julienschmidt/httprouter
