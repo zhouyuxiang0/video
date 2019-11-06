@@ -3,4 +3,4 @@ language: go
 before_install:
   - go get github.com/julienschmidt/httprouter
 script:
-  - go install ./video_server/api
+  - cd ./video_server/api && go install ./video_server/api
