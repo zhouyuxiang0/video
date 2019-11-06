@@ -5,11 +5,11 @@ services:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=123456
-      - MYSQL_DATABASE=video
+      - MYSQL_DATABASE=video_server
     volumes:
-      - $PWD/conf:/etc/mysql/conf.d
-      - $PWD/logs:/logs
-      - $PWD/data:/var/lib/mysql
+      - $PWD/mysql/conf:/etc/mysql/conf.d
+      - $PWD/mysql/logs:/logs
+      - $PWD/mysql/data:/var/lib/mysql
     container_name: db
     ports:
       - "3306:3306"
