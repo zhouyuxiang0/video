@@ -1,4 +1,9 @@
 sudo: false
 language: go
+env:
+  global:
+    - GO111MODULE=on
+install:
+  - go get ./...
 script:
   - cd ./video_server/api && go install ./video_server/api
