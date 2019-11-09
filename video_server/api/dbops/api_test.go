@@ -44,10 +44,10 @@ func testDeleteUser(t *testing.T) {
 }
 
 func testRegetUser(t *testing.T)  {
-	pwd, err := GetUserCredential("avenssi")
-	if err != nil {
-		t.Errorf("Error of RegetUser: %v", err)
-	}
+	pwd, _ := GetUserCredential("avenssi")
+	//if err != nil {
+	//	t.Errorf("Error of RegetUser: %v", err)
+	//}
 	if pwd != "" {
 		t.Errorf("Deleteing user test failed")
 	}
