@@ -1,6 +1,13 @@
 package dbops
 
-import "testing"
+import (
+	"fmt"
+	"strconv"
+	"testing"
+	"time"
+)
+
+var tempvid string
 
 func clearTables() {
 	dbConn.Exec("truncate users")

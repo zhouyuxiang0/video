@@ -1,14 +1,10 @@
-package untils
+package utils
 
 import (
 	"crypto/rand"
 	"fmt"
 	"io"
 )
-
-func main() {
-	
-}
 
 func NewUUID() (string, error) {
 	uuid := make([]byte, 16)

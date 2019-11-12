@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 	"video_server/defs"
-	"video_server/untils"
+	"video_server/utils"
 )
 
 func AddUserCredential(loginName string, pwd string) error {
@@ -53,7 +53,7 @@ func DeleteUser(loginName string, pwd string) error {
 
 func AddNewVideo(aid int, name string) (*defs.VideoInfo, error)  {
 	// create uid
-	vid, e := untils.NewUUID()
+	vid, e := utils.NewUUID()
 	if e != nil {
 		return nil, e
 	}

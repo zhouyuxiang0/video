@@ -14,7 +14,7 @@ type VideoInfo struct {
 
 type Comment struct {
 	Id string
-	VideoId int
+	VideoId string
 	Author string
 	Content string
 }
