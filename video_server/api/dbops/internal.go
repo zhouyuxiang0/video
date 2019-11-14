@@ -2,6 +2,7 @@ package dbops
 
 import (
 	"database/sql"
+	"log"
 	"strconv"
 	"sync"
 	"video_server/defs"
@@ -23,7 +24,7 @@ func InserSession(sid string, ttl int64, uname string) error {
 }
 
 func RetrieveSession(sid string) (*defs.SimpleSession, error) {
-	session := defs.SimpleSession{}
+	session := &defs.SimpleSession{}
 	stmtOut, err := dbConn.Prepare("SELECT sessions.TTL, sessions.login_name from sessions where session_id=?")
 	if err != nil {
 		return nil, err
@@ -34,8 +35,8 @@ func RetrieveSession(sid string) (*defs.SimpleSession, error) {
 	if err != nil && err != sql.ErrNoRows {
 		return nil, err
 	}
-	var ttlint int64
-	if res, ttlint := strconv.ParseInt(ttl, 10, 64); err == nil {
+
+	if res, err := strconv.ParseInt(ttl, 10, 64); err == nil {
 		session.TTL = res
 		session.Username = uname
 	} else {
