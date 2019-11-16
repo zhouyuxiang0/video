@@ -15,7 +15,7 @@ func NewMiddleWareHandler(r *httprouter.Router) http.Handler {
 	return m
 }
 
-func (m middleWareHandler) ServeHttp(w http.ResponseWriter, r *http.Request)  {
+func (m middleWareHandler) ServeHTTP(w http.ResponseWriter, r *http.Request)  {
 	// check session
 	validateUserSession(r)
 	m.r.ServeHTTP(w, r)
