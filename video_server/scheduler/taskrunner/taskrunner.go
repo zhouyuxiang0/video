@@ -1,5 +1,2 @@
 package taskrunner
 
-func main() {
-	
-}
