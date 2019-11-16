@@ -19,6 +19,7 @@ jobs:
     - name: Get dependencies and build
       run: |
         cd video_server/api && go install
+        cd video_server/streamserver && go install
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure

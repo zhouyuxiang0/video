@@ -7,3 +7,4 @@ install:
   - go get ./...
 script:
   - cd video_server/api && go install
+  - cd video_server/streamserver && go install
