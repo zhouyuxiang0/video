@@ -12,7 +12,7 @@ type middleWareHandler struct {
 func NewMiddleWareHandler(r *httprouter.Router) http.Handler {
 	m := middleWareHandler{}
 	m.r = r
-	return m.r
+	return m
 }
 
 func (m middleWareHandler) ServeHttp(w http.ResponseWriter, r *http.Request)  {
