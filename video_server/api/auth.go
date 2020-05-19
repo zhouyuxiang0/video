@@ -6,24 +6,24 @@ import (
 	"video_server/session"
 )
 
-var HEADER_FIELD_SESSION  = "X-Session-Id"
-var HEADER_FIELD_UNAME = "X-User-Name"
+var headerFieldSession = "X-Session-Id"
+var headerFieldUname = "X-User-Name"
 
 func validateUserSession(r *http.Request) bool {
-	sessionId := r.Header.Get(HEADER_FIELD_SESSION)
-	if len(sessionId) == 0 {
+	sessionID := r.Header.Get(headerFieldSession)
+	if len(sessionID) == 0 {
 		return false
 	}
-	uname, ok := session.IsSessionExpired(sessionId)
+	uname, ok := session.IsSessionExpired(sessionID)
 	if ok {
 		return false
 	}
-	r.Header.Add(HEADER_FIELD_UNAME, uname)
+	r.Header.Add(headerFieldUname, uname)
 	return true
 }
 
-func ValidateUser(w http.ResponseWriter, r *http.Request) bool {
-	uname := r.Header.Get(HEADER_FIELD_UNAME)
+func validateUser(w http.ResponseWriter, r *http.Request) bool {
+	uname := r.Header.Get(headerFieldUname)
 	if len(uname) == 0 {
 		sendErrorResponse(w, defs.ErrorNotAuthUser)
 		return false

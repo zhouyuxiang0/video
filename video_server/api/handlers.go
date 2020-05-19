@@ -29,9 +29,10 @@ func createUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	su := &defs.SignedUp{Success: true, SessionId: id}
 	if resp, err := json.Marshal(su); err != nil {
 		sendErrorResponse(w, defs.ErrorInternalFaults)
-		return
+	} else {
+		sendNormalResponse(w, string(resp), 201)
 	}
-	sendNormalResponse(w, string(resp), 201)
+	return
 }
 
 func login(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
